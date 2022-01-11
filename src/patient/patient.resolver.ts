@@ -25,7 +25,6 @@ export class PatientResolver {
   @ResolveField((returns) => [TimelineModel])
   async timelines(@Parent() patient) {
     const { id } = patient;
-    console.log(patient);
     return this.timelineService.findByPatient(id);
   }
   @Query((returns) => [PatientModel])
@@ -34,7 +33,6 @@ export class PatientResolver {
     const sortedPatients = patients.sort(
       (a, b) => dayjs(a.createdAt).unix() - dayjs(b.createdAt).unix(),
     );
-    console.log('sortedPatients', sortedPatients);
     return sortedPatients;
   }
   @Mutation((returns) => PatientModel)
