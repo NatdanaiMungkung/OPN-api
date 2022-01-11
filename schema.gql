@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TimelineModel {
+  id: String!
+  patientId: String!
+  fromDate: DateTime!
+  toDate: DateTime!
+  detail: String!
+  locationType: String!
+  locationName: String!
+  createdAt: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PatientModel {
+  id: String!
+  timelines: [TimelineModel!]
+  gender: String!
+  age: Float!
+  occupation: String!
+  createdAt: String!
+}
+
+type Query {
+  patient(id: String!): PatientModel!
+  patients: [PatientModel!]!
+}
+
+type Mutation {
+  createPatient(occupation: String!, age: Float!, gender: String!, id: String): PatientModel!
+  removePatient(id: String!): Boolean!
+  createTimeline(locationName: String, locationType: String!, detail: String!, toDate: DateTime!, fromDate: DateTime!, patientId: String!, id: String): TimelineModel!
+  removeTimeline(id: String!): Boolean!
+}
