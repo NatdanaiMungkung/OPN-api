@@ -25,3 +25,12 @@ $ npm run start:prod
 ## Graphql playground
 http://localhost:3000/graphql
 
+# Tech Stack
+* NextJs for frontend
+* GraphQL
+* NestJS for Backend
+* SQLite for storage
+
+# Why SQLite ?
+Easy to setup without any complicated dependency, suitable for POC project
+
